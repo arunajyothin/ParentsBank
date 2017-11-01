@@ -1,0 +1,79 @@
+﻿@model PAN_ParentsBank_Final.Models.Transaction
+
+
+<h2>CREATE TRANSACTION</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">RECIPIENT EMAIL ID</label>
+            <div class="col-md-10">
+                @Html.DropDownList("AccountId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AccountId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <h5><strong>TRANSACTION DATE</strong></h5>
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TransactionDate, new { htmlAttributes = new { @class = "form-control", @style="height:40px" } })
+                @Html.ValidationMessageFor(model => model.TransactionDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <h5><strong>TRANSACTION AMOUNT</strong></h5>
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control", @style = "height:40px" } })
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <h5><strong>NOTE</strong></h5>
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control", @style = "height:40px" } })
+                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+            </div>            
+        </div>        
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <h5><strong>TRANSACTION TYPE</strong></h5>
+            </div>
+            <div class="col-md-10">
+                @Html.RadioButtonFor(model => model.TypeOfTransaction, "Debit", new { htmlAttributes = new { @class = "form-control", @checked="true" } }) Debit
+                @Html.RadioButtonFor(model => model.TypeOfTransaction, "Credit", new { htmlAttributes = new { @class = "form-control"} }) Credit
+                @Html.ValidationMessageFor(model => model.TypeOfTransaction, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="CREATE TRANSACTION" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "Transactions")';return false;">
+        <span class="glyphicon glyphicon-circle-arrow-left"></span> BACK TO LIST
+    </button>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

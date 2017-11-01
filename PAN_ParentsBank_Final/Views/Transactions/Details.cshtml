@@ -1,0 +1,68 @@
+﻿@model PAN_ParentsBank_Final.Models.Transaction
+
+
+<h2>TRANSACTION DETAILS</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            RECIPIENT EMAIL ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Recipient)
+        </dd>
+
+        <br />
+
+        <dt>
+            TRANSACTION DATE
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionDate)
+        </dd>
+
+        <br />
+
+        <dt>
+            TRANSACTION AMOUNT
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <br />
+
+        <dt>
+            NOTE
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <br />
+
+        <dt>
+            TRANSACION TYPE
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfTransaction)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("EDIT TRANSACTION ITEMS", "Edit", new { id = Model.Id, @style = "font-size:20pt" })
+
+    <br />
+    <br />
+
+    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "TRANSACTIONS")';return false;">
+        <span class="glyphicon glyphicon-circle-arrow-left"></span> BACK TO LIST
+    </button>
+</p>

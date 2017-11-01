@@ -1,0 +1,81 @@
+﻿@model PAN_ParentsBank_Final.Models.WishListItem
+
+
+<h2>CREATE NEW WISHLIST ITEM</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class = "control-label col-md-2">RECIPIENT EMAIL ID</label>
+            <div class="col-md-10">
+                @Html.DropDownList("AccountId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AccountId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <h5><strong>ITEM COST</strong></h5>
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" , @style="height:40px"} })
+                @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <h5><strong>ITEM DESCRIPTION</strong></h5>
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @style = "height:40px" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <h5><strong>ITEM LINK</strong></h5>
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control", @style = "height:40px" } })
+                @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <h5><strong>PURCHASED</strong></h5>
+            </div>
+            <div class="col-md-10">
+                <div class="checkbox" style="margin-top:10px">
+                    @Html.EditorFor(model => model.Purchased)
+                    @Html.ValidationMessageFor(model => model.Purchased, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ADD WISHLIST ITEM" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "WishListItems")';return false;">
+        <span class="glyphicon glyphicon-circle-arrow-left"></span> BACK TO LIST
+    </button>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

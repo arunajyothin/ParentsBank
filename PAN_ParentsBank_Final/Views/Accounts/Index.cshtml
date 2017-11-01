@@ -1,0 +1,80 @@
+﻿@model IEnumerable<PAN_ParentsBank_Final.Models.Account>
+
+<div class="well well-sm text-center">
+    <h3>ACCOUNT DASHBOARD</h3>
+</div>
+
+  
+<div class="container">
+    <div class="text-left">
+        <button type="button" class="btn btn-primary active" onclick="location.href='@Url.Action("Create", "Accounts")';return false;">CREATE NEW ACCOUNT</button>
+            @*@Html.ActionLink("CREATE NEW ACCOUNT", "Create")*@
+      
+    </div>
+</div>
+
+<br />
+<br />
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th >
+                RECIPIENT NAME
+            </th>
+            <th>
+                CURRENT BALANCE
+            </th>
+            <th>
+                DATE OF LAST DEPOSIT
+            </th>
+            <th>
+                CRUD FUNCTIONALITY    
+            </th>
+            
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.getAccountBalance() != 0)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        $@item.getAccountBalance()
+                    </td>
+                    <td>
+                        @item.getDateOfLastDeposit()
+                    </td>
+                    <td>
+                        @Html.ActionLink("EDIT ACCOUNT", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("ACCOUNT DETAILS", "Details", new { id = item.Id }) |
+                        DELETE DISABLED
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @item.getAccountBalance()
+                    </td>
+                    <td>
+                        @item.getDateOfLastDeposit()
+                    </td>
+                    <td>
+                        @Html.ActionLink("EDIT ACCOUNT", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("ACCOUNT DETAILS", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("DELETE ACCOUNT", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+    <p style="font-weight:bold;font-size:15px"> NAVIGATE TO ACCOUNT DETAILS FOR TRANSACTIONS AND ADDING/SEARCHING WISHLIST ITEMS</p>
+</div>

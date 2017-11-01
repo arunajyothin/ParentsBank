@@ -1,0 +1,78 @@
+﻿@model PAN_ParentsBank_Final.Models.WishListItem
+
+
+<h2>WISHLIST ITEM DETAILS</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            RECIPIENT EMAIL ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Recipient)
+        </dd>
+
+        <br />
+
+        <dt>
+            DATE ADDED
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+
+        <br />
+
+        <dt>
+            ITEM COST
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <br />
+
+        <dt>
+            ITEM DESCRIPTION
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <br />
+
+        <dt>
+            ITEM LINK
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+        <br />  
+
+        <dt>
+            ITEM PURCHASED ?
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchased)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("EDIT WISHLIST ITEMS", "Edit", new { id = Model.Id , @style="font-size:20pt"}) 
+    
+    <br />
+    <br />
+
+    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "WishListItems")';return false;">
+        <span class="glyphicon glyphicon-circle-arrow-left"></span> BACK TO LIST
+    </button>
+</p>

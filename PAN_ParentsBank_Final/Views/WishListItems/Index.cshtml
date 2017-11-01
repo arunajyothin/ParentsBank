@@ -1,0 +1,108 @@
+﻿@model IEnumerable<PAN_ParentsBank_Final.Models.WishListItem>
+
+<script>
+
+    function move() {
+        var elem = document.getElementById("myBar");
+        var width = 0;
+        var remBal = 70 ;
+        var max =  remBal;
+        var id = setInterval(frame, 0);        
+        function frame()
+        {
+            if (width >= fundsReq)
+            {
+                clearInterval(id);
+            }
+            else
+            {
+                width++;
+                elem.style.width = width + '%';
+                elem.innerHTML = width * 1 + '%';
+            }          
+
+        }
+
+    }
+</script>
+
+<h2>WISHLIST ITEMS SUMMARY</h2>
+
+<button type="button" class="btn btn-primary active" onclick="location.href='@Url.Action("create", "WishListItems")';return false;">ADD WISHLIST ITEM</button>
+
+<button type="button" class="btn btn-primary active" onclick="location.href='@Url.Action("search", "WishListItems")';return false;">
+    <span class="glyphicon glyphicon-search"></span> SEARCH WISHLIST
+</button>
+
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>
+            RECIPIENT EMAIL ID
+        </th>
+        <th>
+            DATE ADDED
+        </th>
+        <th>
+            ITEM COST
+        </th>
+        <th>
+            ITEM DESCRIPTION
+        </th>
+        <th>
+            ITEM LINK
+        </th>
+        <th>
+            PURCHASED?
+        </th>
+        <th> CRUD FUNCTIONALITIES</th>
+        <th>
+            JUMP TO ACCOUNT DETAILS
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account.Recipient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateAdded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Link)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Purchased)
+        </td>
+        <td>
+            @Html.ActionLink("EDIT ITEMS", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("ITEM DETAILS", "Details", new { id=item.Id }) |
+            @Html.ActionLink("DELETE ITEMS", "Delete", new { id=item.Id })
+        </td>
+        <td>
+            <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", "Accounts",new { id = item.Account.Id })';return false;">
+                <span class="glyphicon glyphicon-circle-arrow-left"></span> GO!
+            </button>
+        </td>
+    </tr>
+}
+
+</table>
+
+@*<button type="button" class="btn btn-info" onclick="move()">CHECK PROGRESS</button>
+<br />
+<br />*@
+
+<div class="progress" style="height:40px">
+    <div class="progress-bar progress-bar-success progress-bar-striped active" id="myBar" role="progressbar" aria-valuemin="0" aria-valuenow="54" aria-valuemax="100" style="width:54%">
+        <h4>% OF ITEMS NOT AFFORDABLE</h4>
+    </div>
+</div>

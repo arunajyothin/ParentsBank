@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PAN_ParentsBank_Final.Models.Transaction>
+
+<h2>TRANSACTION SUMMARY</h2>
+
+<br />
+
+<button type="button" class="btn btn-primary active" 
+        onclick="location.href='@Url.Action("create", "Transactions")';
+        return false;">ADD NEW TRANSACTION</button>
+<br />
+<br />
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            RECIPIENT EMAIL ID
+        </th>
+        <th>
+            TRANSACTION DATE
+        </th>
+        <th>
+            TRANSACTION AMOUNT
+        </th>
+        <th>
+            NOTE
+        </th>
+        <th>
+            TRANSACTION TYPE
+        </th>
+        <th>CRUD FUNCTIONALITY </th>
+        <th>JUMP TO ACCOUNT DETAILS</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account.Recipient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOfTransaction)
+        </td>
+        <td>
+            @Html.ActionLink("EDIT TRANS", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("TRANS DETAILS", "Details", new { id=item.Id }) |
+            @Html.ActionLink("DELETE TRANS", "Delete", new { id=item.Id })
+        </td>
+        <td>
+            <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", "Accounts",new { id = item.Account.Id })';return false;">
+                <span class="glyphicon glyphicon-circle-arrow-left"></span> GO!
+            </button>
+            @*@Html.ActionLink("GO!", "Details","Accounts", new { id = item.Account.Id},null)*@
+        </td>
+    </tr>
+}
+
+</table>

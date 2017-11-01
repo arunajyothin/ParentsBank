@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+    <mvcSiteMapNode title="Financial Resources" controller="help" action="financial-resources"/>
+    <mvcSiteMapNode title="Account" controller="Accounts" action="Index"/>
+    <mvcSiteMapNode title="Transaction" controller="Transactions" action="Index"/>
+    <mvcSiteMapNode title="Wish List" controller="WishListItems" action="Index"/>
+    <mvcSiteMapNode title="Account Details" controller="Accounts" action="Details" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="Account Edit" controller="Accounts" action="Edit" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="Account Create" controller="Accounts" action="Create" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="Account Delete" controller="Accounts" action="Delete" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="Transactions Details" controller="Transactions" action="Details" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="Transactions Edit" controller="Transactions" action="Edit" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="Transactions Create" controller="Transactions" action="Create" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="Transactions Delete" controller="Transactions" action="Delete" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="WishList Details" controller="WishListItems" action="Details" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="WishList Edit" controller="WishListItems" action="Edit" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="WishList Create" controller="WishListItems" action="Create" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="WishList Delete" controller="WishListItems" action="Delete" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="WishList Search" controller="WishListItems" action="Search" preservedRouteParameters="id"/> 
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

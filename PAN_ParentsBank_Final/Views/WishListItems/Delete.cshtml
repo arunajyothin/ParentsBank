@@ -1,0 +1,74 @@
+﻿@model PAN_ParentsBank_Final.Models.WishListItem
+
+<h2>DELETE WISHLIST ITEM</h2>
+
+<div>
+    <h4>WISHLIST ITEM DETAILS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           OWNER EMAIL ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Owner)
+        </dd>
+
+        <br />
+
+        <dt>
+            DATE ADDED
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+        <br />
+        <dt>
+            ITEM COST
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <br />
+        <dt>
+            ITEM DESCRIPTION
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <br />
+        <dt>
+            ITEM LINK
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+        <br />
+        <dt>
+            ITEM PURCHASED ?
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchased)
+        </dd>
+        <br />
+    </dl>
+
+    <h3>Are you sure you want to delete this item?</h3>
+    <br />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="YES, DELETE" class="btn btn-danger" /> |
+            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "WishListItems")';return false;">
+                <span class="glyphicon glyphicon-circle-arrow-left"></span> NO, BACK TO LIST
+            </button>
+        </div>
+    }
+</div>

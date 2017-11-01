@@ -1,0 +1,291 @@
+﻿@{
+    ViewBag.Title = "Bank Home";
+}
+<style>
+
+    .carousel {
+        /* any dimensions are fine, it can be responsive with max-width */
+        width: 100%;
+        height: 500px;
+    }
+
+    .carousel-inner {
+        /* make sure your .items will get correct height */
+        height: 100%;
+    }
+
+    .item {
+        background-size: cover;
+        background-position: 50% 50%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .panel {
+        border: 1px solid #f4511e;
+        border-radius: 0;
+        transition: box-shadow 0.5s;
+    }
+
+        .panel:hover {
+            box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+        }
+
+    .panel-footer .btn:hover {
+        border: 1px solid #f4511e;
+        background-color: #fff !important;
+        color: #f4511e;
+    }
+
+    .panel-heading {
+        color: #fff !important;
+        background-color: #f4511e !important;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .panel-footer {
+        background-color: #fff !important;
+    }
+
+        .panel-footer h3 {
+            font-size: 32px;
+        }
+
+        .panel-footer h4 {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .panel-footer .btn {
+            margin: 15px 0;
+            background-color: #f4511e;
+            color: #fff;
+        }
+
+    .modal-header, h4, .close {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-header, .modal-body {
+        padding: 40px 50px;
+    }
+
+    .btn-primary.raised {
+        box-shadow: 0 3px 0 0 #007299;
+    }
+
+        .btn-primary.raised:active, .btn-primary.raised.active {
+            background: #33a6cc;
+            box-shadow: none;
+            margin-bottom: -3px;
+            margin-top: 3px;
+        }
+
+</style>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+   
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/Content/home_2_1_ff.jpg">              
+        </div>
+
+        <div class="item">
+            <img src="~/Content/home_1_f.jpg">   
+        </div>
+
+        <div class="item">
+            <img src="~/Content/child_final.jpg">           
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div style="background-image:url(/Content/better_f.jpg);background-repeat:no-repeat;background-size:cover;height:500px;width:100%">
+    
+    <br /><br />    <br />    <br />    <br /> <br /> <br /><br />    <br />    <br />    <br /> <br /> <br /><br />    <br />    <br />    <br />
+
+    
+    <button class="btn btn-primary btn-lg raised" data-toggle="modal" data-target="#myModal" style="margin-bottom:10px;margin-left:530px"><strong>LEARN MORE ABOUT INTEREST RATES</strong></button>
+
+   
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          
+            <div class="modal-content">
+                <div class="modal-header">                   
+                    <h4> INTEREST RATES</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>APY</th>
+                                <th>MIN</th>
+                                <th>MAX</th>
+                                <th>ESTIMATED EARNINGS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.16%</td>
+                                <td>$100</td>
+                                <td>-</td>
+                                <td>$290</td>
+                            </tr>
+                            <tr>
+                                <td>1.00%</td>
+                                <td>$100</td>
+                                <td>-</td>
+                                <td>$250</td>
+                            </tr>
+                            <tr>
+                                <td>0.75%</td>
+                                <td>$100</td>
+                                <td>-</td>
+                                <td>$188</td>
+                            </tr>
+                            <tr>
+                                <td>0.5%</td>
+                                <td>$100</td>
+                                <td>-</td>
+                                <td>$125</td>
+                            </tr>
+                            <tr>
+                                <td>0.30%</td>
+                                <td>$100</td>
+                                <td>-</td>
+                                <td>$75</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Cancel
+                    </button>                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container text-center" style="padding:30px 120px;background-image:url(/Content/nice.jpg);filter:grayscale(60%)">
+    <h3 style="font-size:40px"><strong>SIMPLE DOLLAR BANK</strong></h3>
+    <p style="font-size:25px"><em>Together, we can build a better future for your child</em></p>
+    
+
+    <br />
+    <div class="row">        
+        <div class="col-sm-3">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-globe" style="font-size:xx-large"></span>
+                </div>
+                <div class="panel-body">
+                    <h2>GLOBAL PRESENCE</h2>
+                </div>
+                <div class="panel-footer">
+                    <p>
+                        With branches across 10 different countries and 3 major continents, we are truly a global presence. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-phone" style="font-size:xx-large"></span>
+                </div>
+                <div class="panel-body">
+                    <h2>MOBILE BANKING</h2>
+                </div>
+                <div class="panel-footer">
+                    <p>
+                        Bank on the go with our Mobile Banking services. Download the app or use SMS
+      
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-usd" style="font-size:xx-large"></span>
+                </div>
+                <div class="panel-body">
+                    <h2>SAVE MORE</h2>
+                </div>
+                <div class="panel-footer">
+                    <p>
+                        We're helpful ! <br /> Talk to our friendly saving experts and help your child save more.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-search" style="font-size:xx-large"></span>
+                </div>
+                <div class="panel-body">
+                    <h2>CREATE WISHLISTS</h2>
+                </div>
+                <div class="panel-footer">
+                    <p>
+                        Use our interactive Wishlist Item Interface to create wishlist items and earn special rewards
+                    </p>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>*@

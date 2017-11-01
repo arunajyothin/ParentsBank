@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    @model IEnumerable<PAN_ParentsBank_Final.Models.WishListItem>
+
+    
+
+    <h2>SEARCH WISHLIST</h2>
+    <br />
+
+    @using (Html.BeginForm("Search", "WishlistItems", FormMethod.Get))
+    {
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.Label("Description", "Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.Editor("Description", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Cost", "Price", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.Editor("Cost", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="SEARCH" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+    <table class="table table-bordered">
+        <tr>
+            <th>
+               RECIPIENT EMAIL ID
+            </th>
+            <th>
+                DATE ADDED
+            </th>
+            <th>
+                ITEM COST
+            </th>
+            <th>
+                ITEM DESCRIPTION
+            </th>
+            <th>
+                ITEM LINK
+            </th>
+            <th>
+                PURCHASING ITEM?
+            </th>
+            <th>CRUD FUNCTIONALITY</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account.Recipient)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAdded)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Link)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchased)
+                </td>
+                <td>
+                    @Html.ActionLink("EDIT ITEM", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("ITEM DETAILS", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("DELETE ITEM", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "WishListItems")';return false;">
+        <span class="glyphicon glyphicon-circle-arrow-left"></span> BACK TO LIST
+    </button>
+</body>
+</html>
